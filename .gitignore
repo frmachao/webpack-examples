@@ -1,0 +1,11 @@
+.DS_Store
+.fusebox
+dist
+node_modules
+/tmp
+npm-debug.log
+yarn-error.log
+# API keys and secrets
+.env
+.vscode
+.umi
