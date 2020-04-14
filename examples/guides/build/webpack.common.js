@@ -1,21 +1,24 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const webpack = require('webpack');
+
 const fileRules = require('./rules/fileRules')
-const styleRules= require('./rules/styleRules')
+const styleRules = require('./rules/styleRules')
 
 module.exports = {
   entry: {
     app: path.resolve(__dirname, '../src/index.js'),
-    print: path.resolve(__dirname, '../src/print.js')
   },
   plugins: [
     // 默认情况下，这个插件将删除 webpack 的 output.path 目录中的所有文件，以及每次成功重建后所有未使用的 webpack 资产。
     new CleanWebpackPlugin(),
     // 使用Html插件自动生成html文件,它会把需要的bundle自动加载
     new HtmlWebpackPlugin({
-      title: '管理输出'
-    })
+      title: '开发环境'
+    }),
+    // 热更新插件
+    // new webpack.HotModuleReplacementPlugin()
   ],
   output: {
     filename: '[name].bundle.js',
