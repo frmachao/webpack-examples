@@ -1,16 +1,19 @@
 const cp = require('child_process');
-
-// node index.js --beep=boop -t -z 12 -n5 foo bar
-// { _: [ 'foo', 'bar' ], beep: 'boop', t: true, z: 12, n: 5 }
+const path = require('path');
+/**
+ * 注意webpack-dev-server 在编译之后不会写入到任何输出文件。而是将 bundle 文件保留在内存中
+ * 如果你想纯前端开发调试 node build.js 
+ * 如果你想在开发中产出dist目录交给服务端使用 node build.js --build --watch
+ * 构建生产环境 node build.js --build --prod
+ */
+const buildRoot=path.resolve(__dirname)
 const argv = require('minimist')(process.argv.slice(2));
-let isWatch =argv.watch?'--watch':''
-    webpackMode=argv.build?"webpack.prod.js":"webpack.dev.js"
-if(argv.build&&argv.watch){
-    console.log('err: build 和 watch 不能同时执行');
-    return false;
-}
-// 注意webpack-dev-server 在编译之后不会写入到任何输出文件。而是将 bundle 文件保留在内存中
-const cpBuild = cp.exec(`npx webpack --config build/${webpackMode} ${isWatch}`, (error, stdout, stderr) => {
+console.log('argv==',argv)
+let isWatch = argv.watch ? '--watch' : ''
+webpackMode = argv.prod ? `${buildRoot}/webpack.prod.js` : `${buildRoot}/webpack.dev.js`
+isDevServer = argv.build ? 'webpack' : 'webpack-dev-server';
+
+const cpBuild = cp.exec(`npx ${isDevServer} --config ${webpackMode} ${isWatch}`, (error, stdout, stderr) => {
     if (error) {
         console.error('error:', error);
     }

@@ -18,11 +18,11 @@ module.exports = {
       title: '开发环境'
     }),
     // 热更新插件
-    // new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin()
   ],
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, '../../dist/guides')
+    path: path.resolve(__dirname, '../dist/guides')
   },
   // module 模块化编程 中，开发者将程序分解为功能离散的 chunk(discrete chunks of functionality)，并称之为_模块_。
   module: {
@@ -31,5 +31,11 @@ module.exports = {
       ...styleRules,
       ...fileRules
     ]
+  },
+  optimization: {
+    // SplitChunksPlugin 插件可以将公共的依赖模块提取到已有的 entry chunk 中，或者提取到一个新生成的 chunk。
+    splitChunks: {
+      chunks: 'all'
+    }
   }
 };
