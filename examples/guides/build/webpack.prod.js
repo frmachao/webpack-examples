@@ -1,5 +1,6 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
+const path = require('path');
 const cleanWebpackPlugin = require("clean-webpack-plugin");
 /**
  * 我们需要将 mode 配置选项设置为 production 

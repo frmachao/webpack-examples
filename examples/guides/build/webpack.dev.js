@@ -2,6 +2,7 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const webpack = require('webpack');
 const path = require('path');
+const cleanWebpackPlugin = require("clean-webpack-plugin");
 module.exports = merge(common, {
     // 通过选择 development, production 或 none 之中的一个，来设置 mode 参数，你可以启用 webpack 内置在相应环境下的优化
     // 其默认值为 production。
@@ -20,6 +21,12 @@ module.exports = merge(common, {
         port: 9527,
     },
     plugins: [
+        //删除dist目录
+        new cleanWebpackPlugin(['dist'], {
+            root: path.resolve(__dirname, '../'), //根目录
+            verbose: true, //开启在控制台输出信息
+            dry: false,
+        }),
         // 配置全局变量
         new webpack.DefinePlugin({
             // Definitions...

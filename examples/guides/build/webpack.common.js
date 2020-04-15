@@ -5,7 +5,7 @@ const rulesConfig=require('./rules')
 
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, '../src/index.jsx'),
+    'site/app': path.resolve(__dirname, '../src/index.jsx'),
   },
   plugins: [
     // 使用Html插件自动生成html文件,它会把需要的bundle自动加载
