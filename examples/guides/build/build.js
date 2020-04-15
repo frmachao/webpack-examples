@@ -8,12 +8,14 @@ const path = require('path');
  */
 const buildRoot=path.resolve(__dirname)
 const argv = require('minimist')(process.argv.slice(2));
-console.log('argv==',argv)
+console.log('argv===',argv)
+process.env.AA='aa'
+
 let isWatch = argv.watch ? '--watch' : ''
-webpackMode = argv.prod ? `${buildRoot}/webpack.prod.js` : `${buildRoot}/webpack.dev.js`
+webpackMode = argv.production ? `${buildRoot}/webpack.prod.js` : `${buildRoot}/webpack.dev.js`
 isDevServer = argv.build ? 'webpack' : 'webpack-dev-server';
 
-const cpBuild = cp.exec(`npx ${isDevServer} --config ${webpackMode} ${isWatch}`, (error, stdout, stderr) => {
+const cpBuild = cp.exec(`npx ${isDevServer} ${isWatch} --config ${webpackMode}`, (error, stdout, stderr) => {
     if (error) {
         console.error('error:', error);
     }
