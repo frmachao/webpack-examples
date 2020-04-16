@@ -14,7 +14,6 @@ module.exports = [
                 }
             },
                 "less-loader",
-                'postcss-loader',
         ]    
     },
     {

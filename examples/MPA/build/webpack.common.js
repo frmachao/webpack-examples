@@ -1,22 +1,22 @@
 const path = require('path');
+const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const rulesConfig=require('./rules')
 
+// const dirsName=fs.readdirSync(path.join(__dirname, '../site/mpa'))
+const spaName=fs.readdirSync(path.join(__dirname, '../site/spa1'))
+// console.log('dirsName==',dirsName)
+console.log('mapName==',spaName)
 module.exports = {
-  entry: {
-    'site/app': path.resolve(__dirname, '../src/index.jsx'),
-  },
+  entry: {},
   plugins: [
     // 使用Html插件自动生成html文件,它会把需要的bundle自动加载
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './tpl/index.html'),
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: path.resolve(__dirname, './tpl/index.html'),
+    // }),
   ],
-  output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, '../dist')
-  },
+  output: {},
   // module 模块化编程 中，开发者将程序分解为功能离散的 chunk(discrete chunks of functionality)，并称之为_模块_。
   module: {
     // 通过 loader，webpack 可以支持以各种语言和预处理器语法编写的模块。

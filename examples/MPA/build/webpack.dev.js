@@ -13,25 +13,10 @@ module.exports = merge(common, {
      * webpack-dev-server 在编译之后不会写入到任何输出文件。而是将 bundle 文件保留在内存中
      * 这并不是我预期的 因为我需要产出的 bundle 供 express 使用
      */
-    devServer: {
-        // webpack-dev-server，将 dist 目录下的文件 serve 到 localhost:8080 下
-        contentBase: path.resolve(__dirname, '../../dist'),
-        open: true,
-        hot: true,
-        port: 9527,
-    },
     plugins: [
-        //删除dist目录
-        new cleanWebpackPlugin(['dist'], {
-            root: path.resolve(__dirname, '../'), //根目录
-            verbose: true, //开启在控制台输出信息
-            dry: false,
-        }),
         // 配置全局变量
         new webpack.DefinePlugin({
             // Definitions...
         }),
-        // 热更新插件
-        new webpack.HotModuleReplacementPlugin(),
     ]
 });
