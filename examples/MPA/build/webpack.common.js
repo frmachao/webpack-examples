@@ -1,13 +1,9 @@
-const path = require('path');
-const fs = require('fs');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const rulesConfig=require('./rules')
+const rulesConfig = require('./rules')
 
-// const dirsName=fs.readdirSync(path.join(__dirname, '../site/mpa'))
-const spaName=fs.readdirSync(path.join(__dirname, '../site/spa1'))
-// console.log('dirsName==',dirsName)
-console.log('mapName==',spaName)
 module.exports = {
   entry: {},
   plugins: [
@@ -15,6 +11,9 @@ module.exports = {
     // new HtmlWebpackPlugin({
     //   template: path.resolve(__dirname, './tpl/index.html'),
     // }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+    })
   ],
   output: {},
   // module 模块化编程 中，开发者将程序分解为功能离散的 chunk(discrete chunks of functionality)，并称之为_模块_。

@@ -8,7 +8,7 @@ module.exports = merge(common, {
     // 其默认值为 production。
     mode: 'development',
     //  启用source map 功能 不要在生产环境开启
-    devtool: 'source-map',
+    devtool: 'inline-source-map',
     /**
      * webpack-dev-server 在编译之后不会写入到任何输出文件。而是将 bundle 文件保留在内存中
      * 这并不是我预期的 因为我需要产出的 bundle 供 express 使用

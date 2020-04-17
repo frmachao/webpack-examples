@@ -10,6 +10,8 @@
     |--server 网站后台
     |--site 网站前端
         |--mpa 多页面应用资源目录
+            |--page1
+            |--page2
         |--spa1
         |--spa2
         |--xxxx
@@ -22,11 +24,21 @@
 ## 为什么不是 fuse-box
 fuse-box 它年轻且成熟 并且它足够快,配置也足够简洁一切都是 Typescript 来处理，甚至我认为它比`webpack`要更好.但是自己的段位不够，在配置`fusebox`时总是搞不定 antd 4.0按需加载的问题
 
+## 使用场景
+- 多页面网站 依靠服务端模板 每个页面使用`react` `vue` 等 `mvvm` 前端框架开发相互独立
+- 维护多个前端工程
+- 批量构建
+
 ## 如何使用
 
 ```js
- * 开发中产出dist目录交给服务端使用 node build.js [site/map|spa1|all]  --watch
+ * 开发中产出dist目录交给服务端使用 node build.js [`site/map`|`spa1`|`all`]  --watch
  * 构建生产环境 node build.js all --build
  'site/mpa' 是约定的多页面工程目录
  * 启动服务端 在 `MPA/server` 目录 执行 `npx nodemon app.js` 
 ```
+## TODO
+- [x] 支持MPA、SPA模式打包
+- [x] 抽取CSS
+- [x] 构建优化: 去除console等信息、压缩CSS
+- [ ] 集成`antd`

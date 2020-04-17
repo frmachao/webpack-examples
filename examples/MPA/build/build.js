@@ -61,7 +61,7 @@ function buildSPA(name) {
 }
 function buildOne(ENTRY_FILESNAME_STR, OUT_PUT_STR) {
     const cpBuild = cp.exec(
-        `npx webpack ${hasWatch} ${ENTRY_FILESNAME_STR} --progress --config ${isBuild} -o ${OUT_PUT_STR}`,
+        `npx webpack ${hasWatch} ${ENTRY_FILESNAME_STR} --config ${isBuild} -o ${OUT_PUT_STR}`,
         (error, stdout, stderr) => {
             if (error) {
                 console.error('error:', error);

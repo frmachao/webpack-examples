@@ -1,20 +1,20 @@
-const MiniCssExtractPlugin=require('mini-css-extract-plugin')
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path');
 module.exports = [
     {
         test: /\.(css|less)$/,
+        // include: [path.join(__dirname,'../site')],
         use: [
-            {
-                loader: "style-loader"
-            },
+            MiniCssExtractPlugin.loader,
             {
                 loader: "css-loader",
-                options: {
-                    modules: true,
-                }
+                // options: {
+                //     modules: true,
+                // }
             },
-                "less-loader",
-        ]    
+            "less-loader",
+            // 'postcss-loader',
+        ]
     },
     {
         // 处理图片资源

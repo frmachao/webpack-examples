@@ -5,6 +5,7 @@ exports.blogRouter=(req,res)=>{
         manifest: '/fe-static/mpa/runtime.js',
         // 打包后的依赖文件
         venderJs: '/fe-static/mpa/vendors.js',
+        venderCSS: '/fe-static/mpa/vendors.css',
         // 业务代码
         app: '/fe-static/mpa/blog/index.js'
     });
@@ -16,6 +17,7 @@ exports.gameRouter=(req,res)=>{
         manifest: '/fe-static/mpa/runtime.js',
         // 打包后的依赖文件
         venderJs: '/fe-static/mpa/vendors.js',
+        venderCSS: '/fe-static/mpa/vendors.css',
         // 业务代码
         app: '/fe-static/mpa/game/index.js'
     });
@@ -24,9 +26,10 @@ exports.spa1Router=(req,res)=>{
     res.render('spa', {
         title: 'spa1',
         // 生成维系各各代码块关系的代码
-        manifest: '/fe-static/mpa/runtime.js',
+        manifest: '/fe-static/spa1/runtime.js',
         // 打包后的依赖文件
-        venderJs: '/fe-static/mpa/vendors.js',
+        venderJs: '/fe-static/spa1/vendors.js',
+        venderCSS: '/fe-static/spa1/vendors.css',
         // 业务代码
         app: '/fe-static/mpa/game/index.js'
     });
@@ -38,6 +41,7 @@ exports.spa2Router=(req,res)=>{
         manifest: '/fe-static/spa2/runtime.js',
         // 打包后的依赖文件
         venderJs: '/fe-static/spa2/vendors.js',
+        venderCSS: '/fe-static/spa2/vendors.css',
         // 业务代码
         app: '/fe-static/spa2/index.js'
     });

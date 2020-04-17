@@ -1,23 +1,16 @@
-import _ from 'lodash';
-import printMe from './print.js';
-import './css/index.css';
-if (process.env.NODE_ENV !== 'production') {
-    console.log('Looks like we are in development mode!');
+import React from 'react';
+import ReactDOM from 'react-dom';
+// import styles from './index.less'
+import { DatePicker } from 'antd';
+const APP = () => {
+  return (
+    <div>
+      {/* <h1 className={styles.hello}>这是 spa1</h1> */}
+      <DatePicker/>
+      <h2>{`process.env==${process.env}`}</h2>
+    </div>
+  )
 }
 
-
-function component() {
-    var element = document.createElement('div');
-    var btn = document.createElement('button');
-
-    element.innerHTML = _.join(['Hello', 'blog'], ' ');
-
-    btn.innerHTML = '点击这里，然后查看 console!!';
-    btn.onclick = printMe;
-
-    element.appendChild(btn);
-
-    return element;
-}
-
-document.body.appendChild(component());
+ReactDOM.render(<APP />, document.getElementById('app')
+);
