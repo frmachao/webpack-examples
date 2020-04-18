@@ -5,7 +5,7 @@ const APP = () => {
   // console.log('styles==',styles)
   return (
     <div>
-      <h1 className={styles.hello}>这是 spa1</h1>
+      <h1>这是 spa1</h1>
       <h2>{`process.env==${process.env}`}</h2>
     </div>
   )

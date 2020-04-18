@@ -3,17 +3,30 @@ const path = require('path');
 module.exports = [
     {
         test: /\.(css|less)$/,
-        // include: [path.join(__dirname,'../site')],
+        include: [path.join(__dirname,'../site')],
         use: [
             MiniCssExtractPlugin.loader,
             {
                 loader: "css-loader",
-                // options: {
-                //     modules: true,
-                // }
+                options: {
+                    modules: true,
+                }
             },
             "less-loader",
-            // 'postcss-loader',
+            'postcss-loader',
+        ]
+    },
+    {
+        test: /\.(css|less)$/,
+        include: [/node_modules/],
+        use: [
+            MiniCssExtractPlugin.loader,
+            {
+                loader: "css-loader",
+            },
+            "less-loader",
+            // 不知道为什么 antd 和 style-loader冲突
+            // "style-loader"
         ]
     },
     {

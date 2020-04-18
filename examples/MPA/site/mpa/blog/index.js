@@ -7,7 +7,7 @@ const APP = () => {
     <div>
       {/* <h1 className={styles.hello}>这是 spa1</h1> */}
       <DatePicker/>
-      <h2>{`process.env==${process.env}`}</h2>
+      <h2>{`process.env==ss${process.env}`}</h2>
     </div>
   )
 }
