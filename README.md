@@ -1,4 +1,5 @@
-# 一个集成多页面构建以及单页面构建的webpack配置
+# 一个支持多页面构建以及单页面构建的webpack配置
+# 服务端集成`express` `mongodb` `graphql` 快速开始开发 支持 TypeScript 编写
 
 > Inspired by `zwh1666258377`
 
@@ -13,7 +14,12 @@
             |--page2
         |--spa1
         |--xxx
-    |--server 网站后台
+    |--server 网站后端
+        |--middlewares
+        |--controllers
+        |--models 
+        |--public
+        |--app.ts
     |--site 网站前端
         |--mpa 多页面应用资源目录
             |--page1
@@ -45,9 +51,9 @@ fuse-box 它年轻且成熟 并且它足够快,配置也足够简洁一切都是
  * 开发中产出dist目录交给服务端使用 node build.js [`site/map`|`spa1`|`all`]  --watch
  * 构建生产环境 node build.js all --build
  'site/mpa' 是约定的多页面工程目录
- * 启动服务端 在 `MPA/server` 目录 执行 `npx nodemon app.js` 
+ * 启动服务端 在 `MPA/server` 目录 执行 `npx nodemon app.ts` 
+ * 开发环境访问 `/graphql` 来调试 api 接口
 ```
-
 ## TODO
 
 - [x] 支持MPA、SPA模式打包
