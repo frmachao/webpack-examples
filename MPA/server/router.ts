@@ -1,6 +1,23 @@
-exports.blogRouter=(req,res)=>{
+import { Request, Response, Application, NextFunction } from 'express'
+import graphqlHTTP from 'express-graphql'
+import schema from './controllers/graphql'
+// import * as path from "path";
+
+// const feStatic = path.join(__dirname, '../../../front/dist');
+const setRoutes = (app: Application) => {
+  app.get('/', (req:Request, res:Response) => {
+    res.render('home')
+  })
+  app.use('/graphql', graphqlHTTP(req => {
+    return {
+      schema,
+      graphiql: true,
+      context: { req }
+    }
+  }))
+  app.use('/blog', ((req,res)=>{
     res.render('index', {
-        title: 'blog',
+        title: 'game',
         // 生成维系各各代码块关系的代码
         manifest: '/fe-static/mpa/runtime.js',
         // 打包后的依赖文件
@@ -9,8 +26,8 @@ exports.blogRouter=(req,res)=>{
         // 业务代码
         app: '/fe-static/mpa/blog/index.js'
     });
-}
-exports.gameRouter=(req,res)=>{
+}))
+  app.use('/game', ((req,res)=>{
     res.render('index', {
         title: 'game',
         // 生成维系各各代码块关系的代码
@@ -21,8 +38,8 @@ exports.gameRouter=(req,res)=>{
         // 业务代码
         app: '/fe-static/mpa/game/index.js'
     });
-}
-exports.spa1Router=(req,res)=>{
+}))
+  app.use('/spa1', ((req,res)=>{
     res.render('spa', {
         title: 'spa1',
         // 生成维系各各代码块关系的代码
@@ -33,8 +50,8 @@ exports.spa1Router=(req,res)=>{
         // 业务代码
         app: '/fe-static/mpa/game/index.js'
     });
-}
-exports.spa2Router=(req,res)=>{
+}))
+  app.use('/spa2', ((req,res)=>{
     res.render('spa', {
         title: 'spa2',
         // 生成维系各各代码块关系的代码
@@ -45,4 +62,7 @@ exports.spa2Router=(req,res)=>{
         // 业务代码
         app: '/fe-static/spa2/index.js'
     });
+}))
 }
+export default setRoutes
+

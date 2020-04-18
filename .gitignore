@@ -6,6 +6,5 @@ node_modules
 npm-debug.log
 yarn-error.log
 # API keys and secrets
-.env
 .vscode
 .umi
