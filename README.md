@@ -61,3 +61,4 @@ fuse-box 它年轻且成熟 并且它足够快,配置也足够简洁一切都是
 - [x] 构建优化: 去除console等信息、压缩CSS
 - [x] 集成`antd`
 - [x] 服务端集成`express` `mongodb` `graphql`
+- [x] 添加 `登录` `注册` 接口
