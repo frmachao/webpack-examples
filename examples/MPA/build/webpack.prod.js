@@ -45,6 +45,8 @@ module.exports = merge(common, {
                         // Terser 将假定这些函数不会产生副作用
                         // pure_funcs: ['console.log']
                     },
+                    // 兼容性
+                    safari10:true,
                 },
             }),
         ],
