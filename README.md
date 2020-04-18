@@ -1,7 +1,6 @@
 # 一个支持多页面构建以及单页面构建的webpack配置
-# 服务端集成`express` `mongodb` `graphql` 快速开始开发 支持 TypeScript 编写
-
 > Inspired by `zwh1666258377`
+##  服务端集成`express` `mongodb` `graphql` 快速开始开发 支持 TypeScript 编写
 
 ```bash
 |--guides 跟随webpack官网指南
