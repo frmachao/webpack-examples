@@ -1,6 +1,6 @@
 .history
 /build
 /dist
-/node_modules
-/server
+node_modules
 postcss.config.*
+tsconfig.*

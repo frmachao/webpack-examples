@@ -27,6 +27,8 @@ module.exports = {
     ]
   },
   resolve: {
+    // 自动解析确定的扩展名,能够使用户在引入模块时不带扩展：
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
     // 设置路径别名
     alias: {
       '@': path.resolve(__dirname, '../site')

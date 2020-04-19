@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 // import styles from './index.less'
-const APP = () => {
+const APP: React.FC = () => {
   // console.log("styles==", styles);
   return (
     <div>

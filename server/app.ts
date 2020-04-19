@@ -6,7 +6,7 @@ import { MONGODB_URI, SESSION_SECRET } from "./utils/secrets";
 import { reqLog } from "./middlewares/log";
 import setRoutes from "./router";
 
-const path = require("path");
+import path from "path";
 
 const MongoStore = mongo(session);
 const app: Application = express();
@@ -21,7 +21,7 @@ mongoose
   .then(() => console.log("MongoDB connected!!"))
   .catch((err: Error) => console.error(err));
 // 设置前端资源路径
-app.use("/fe-static", express.static(path.join(__dirname, "../client/dist")));
+app.use("/fe-static", express.static(path.join(__dirname, "../dist")));
 // 设置后端模板
 app.set("views", path.join(__dirname, "/view"));
 app.set("view engine", "ejs");
@@ -46,7 +46,7 @@ app.use(
 app.use(reqLog);
 // 设置路由
 setRoutes(app);
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.status(404).send("Not Found");
 });
 // 启动服务
