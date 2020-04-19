@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node MPA/build/build.js all --build"
+    "build": "node build/build.js all --build"
   },
   "repository": {
     "type": "git",

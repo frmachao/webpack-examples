@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "emmet.excludeLanguages": ["markdown"],
+  "eslint.format.enable": true,
+  "eslint.validate": ["javascript", "jsx"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}

@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 // import styles from './index.less'
 const APP = () => {
-  console.log("styles==", styles);
+  // console.log("styles==", styles);
   return (
     <div>
       <h1>这是 spa1</h1>

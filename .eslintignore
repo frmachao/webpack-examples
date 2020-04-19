@@ -2,5 +2,5 @@
 /build
 /dist
 /node_modules
-../server
+/server
 postcss.config.*
