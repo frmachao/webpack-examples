@@ -19,9 +19,9 @@ mongoose
   .then(() => console.log('MongoDB connected!!'))
   .catch((err: Error) => console.error(err));
 // 设置前端资源路径
-app.use('/fe-static', express.static(path.join(__dirname, '../dist')))
+app.use('/fe-static', express.static(path.join(__dirname, '../client/dist')))
 // 设置后端模板
-app.set('views', path.join(__dirname, '../view'));
+app.set('views', path.join(__dirname, '/view'));
 app.set('view engine', 'ejs');
 // 处理请求正文中间件
 app.use(express.json())
@@ -53,6 +53,4 @@ app.listen(app.get("port"), () => {
     app.get("port"),
     app.get("env")
   );
-  console.log('process.env["PORT"]===', process.env["PORT"])
-  console.log("  Press CTRL-C to stop\n");
 })

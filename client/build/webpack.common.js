@@ -1,6 +1,7 @@
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
 
 const rulesConfig = require('./rules')
 
@@ -22,6 +23,12 @@ module.exports = {
     rules: [
       ...rulesConfig
     ]
+  },
+  resolve: {
+    // 设置路径别名
+    alias: {
+      '@': path.resolve(__dirname, '../site')
+    }
   },
   optimization: {
     // 为运行时的代码创建单独的chunk
