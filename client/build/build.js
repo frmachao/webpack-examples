@@ -16,7 +16,6 @@ isBuild = argv.build ? `${buildRoot}/webpack.prod.js` : `${buildRoot}/webpack.de
 fileName = argv._[0];
 
 if (fileName === 'all') {
-    hasWatch = argv.build ? '' : '--watch'
     console.log('hasWatch===', hasWatch)
     buildMPA()
     fs.readdirSync(`${projectRoot}/site`).forEach(file => {
@@ -43,7 +42,7 @@ function buildMPA() {
     fs.readdirSync(`${projectRoot}/site/mpa`).forEach(file => {
         const blockFiles = ['.DS_Store']
         if (blockFiles.indexOf(file) === -1) {
-            ENTRY_FILESNAME[`${file}/index`] = (`${projectRoot}/site/mpa/${file}/index.js`);
+            ENTRY_FILESNAME[`${file}/index`] = (`${projectRoot}/site/mpa/${file}/index.jsx`);
         }
     });
     buildOne(getEntry(ENTRY_FILESNAME), OUT_PUT_STR);
@@ -51,12 +50,12 @@ function buildMPA() {
 function buildSPA(name) {
     console.log('name==', name)
     let ENTRY_FILESNAME = {};
-    let OUT_PUT_STR = `${distRoot}/${name}/[name].js`;
+    let OUT_PUT_STR = `${distRoot}/${name}/[name][hash].js`;
     if (!fs.readdirSync(`${projectRoot}/site`).find(file => file === name)) {
         console.log(`err:${projectRoot}/site is no such project。`);
         return false;
     }
-    ENTRY_FILESNAME[`index`] = (`${projectRoot}/site/${name}/index.js`);
+    ENTRY_FILESNAME[`index`] = (`${projectRoot}/site/${name}/index.jsx`);
     buildOne(getEntry(ENTRY_FILESNAME), OUT_PUT_STR);
 }
 function buildOne(ENTRY_FILESNAME_STR, OUT_PUT_STR) {

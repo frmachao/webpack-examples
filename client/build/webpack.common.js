@@ -1,6 +1,7 @@
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 const path = require('path');
 
 const rulesConfig = require('./rules')
@@ -9,12 +10,13 @@ module.exports = {
   entry: {},
   plugins: [
     // 使用Html插件自动生成html文件,它会把需要的bundle自动加载
-    // new HtmlWebpackPlugin({
-    //   template: path.resolve(__dirname, './tpl/index.html'),
-    // }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './tpl/index.html'),
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
-    })
+    }),
+    new ManifestPlugin()
   ],
   output: {},
   // module 模块化编程 中，开发者将程序分解为功能离散的 chunk(discrete chunks of functionality)，并称之为_模块_。

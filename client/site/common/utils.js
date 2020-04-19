@@ -1,4 +1,4 @@
 const testFun = () => {
-  console.log("test=");
+  console.log('test=');
 };
 export { testFun };

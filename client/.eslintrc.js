@@ -1,4 +1,5 @@
 module.exports = {
+    root: true,
     //为我们提供运行环境，一个环境定义了一组预定义的全局变量
     "env": {
         "browser": true,
@@ -48,5 +49,14 @@ module.exports = {
             }
         ],
         'no-useless-escape': 2,
+    },
+    settings: {
+        'import/resolver': {
+            alias: {
+                map: [
+                    ['@', './site/'],
+                ],
+            }
+        }
     }
-};
+}
