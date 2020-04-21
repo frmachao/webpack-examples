@@ -1,12 +1,12 @@
-import express, { Request, Response, Application, NextFunction } from "express";
-import mongoose from "mongoose";
-import mongo from "connect-mongo"; // 一般用来将session存储到数据库中
-import session from "express-session";
-import { MONGODB_URI, SESSION_SECRET } from "@/utils/secrets";
-import { reqLog } from "@/middlewares/log";
-import setRoutes from "./router";
+import express, { Application } from 'express';
+import mongoose from 'mongoose';
+import mongo from 'connect-mongo'; // 一般用来将session存储到数据库中
+import session from 'express-session';
+import { MONGODB_URI, SESSION_SECRET } from '@/utils/secrets';
+import { reqLog } from '@/middlewares/log';
+import setRoutes from './router';
 
-import path from "path";
+import path from 'path';
 
 const MongoStore = mongo(session);
 const app: Application = express();
@@ -18,13 +18,13 @@ mongoose
     useCreateIndex: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("MongoDB connected!!"))
+  .then(() => console.log('MongoDB connected!!'))
   .catch((err: Error) => console.error(err));
 // 设置前端资源路径
-app.use("/fe-static", express.static(path.join(__dirname, "../../dist")));
+app.use('/fe-static', express.static(path.join(__dirname, '../../dist')));
 // 设置后端模板
-app.set("views", path.join(__dirname, "../view"));
-app.set("view engine", "ejs");
+app.set('views', path.join(__dirname, '../view'));
+app.set('view engine', 'ejs');
 // 处理请求正文中间件
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -47,14 +47,14 @@ app.use(reqLog);
 // 设置路由
 setRoutes(app);
 app.use((req, res) => {
-  res.status(404).send("Not Found");
+  res.status(404).send('Not Found');
 });
 // 启动服务
-app.set("port", process.env.PORT || 3000);
-app.listen(app.get("port"), () => {
+app.set('port', process.env.PORT || 3000);
+app.listen(app.get('port'), () => {
   console.log(
-    "  App is running at http://localhost:%d in %s mode",
-    app.get("port"),
-    app.get("env")
+    '  App is running at http://localhost:%d in %s mode',
+    app.get('port'),
+    app.get('env')
   );
 });

@@ -1,18 +1,18 @@
 // 不是真实的 tsc 配置 仅仅是让 IDE 对 ts 文件有提示,编译ts 走的 babel
 {
-    "compilerOptions": {
-        "target": "esnext",
-        "module": "esnext",
-        "moduleResolution": "node",
-        "importHelpers": true,
-        "esModuleInterop": true,
-        "sourceMap": true,
-        "baseUrl": "./",
-        "strict": true,
-        "paths": {
-            "@/*": ["src/*"]
-        },
-        "allowSyntheticDefaultImports": true
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "baseUrl": "./",
+    "strict": true,
+    "paths": {
+      "@/*": ["src/*"]
     },
-    "exclude": ["node_modules", "**/*.spec.ts"]
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }

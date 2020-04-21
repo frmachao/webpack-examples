@@ -64,8 +64,11 @@ fuse-box 它年轻且成熟 并且它足够快,配置也足够简洁一切都是
 - [x] 集成`antd`
 - [x] 服务端集成`express` `mongodb` `graphql`
 - [x] 添加 `登录` `注册` 接口
-- [ ] 添加 eslint、prettier 代码风格约束
+- [x] 添加 eslint、prettier 代码风格约束
 
-## 遇到的问题
+## 记录
+- 前后端的 typescript 全部 采用 babel 来编译，
+  + 优点是编译更快，同时可以使用babel的插件比如 按需加载 和 路径别名 
+- 添加 eslint、prettier 代码风格约束 
+  + 没有采用社区的风格,仅有一些简单的规则
 
-- 当仓库根目录存在两个工程时 eslint 不生效
