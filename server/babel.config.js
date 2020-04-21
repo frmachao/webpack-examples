@@ -6,7 +6,7 @@ module.exports = {
       "@babel/preset-env",
       {
         "targets": {
-          // 默认是 与 process.versions.node 相同,这里让它编译到支持 node 10 版本
+          // 默认是与 process.versions.node 相同,这里让它编译到支持 node 10 版本
           "node": 10
         }
       }
