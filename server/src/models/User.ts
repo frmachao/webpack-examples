@@ -23,7 +23,7 @@ export type UserDocument = mongoose.Document & {
     gravatar: (size: number) => string;
 };
 
-type comparePasswordFunction = (candidatePassword: string, cb: (err: any, isMatch: any) => {}) => void;
+type comparePasswordFunction = (candidatePassword: string, cb: (err: Error, isMatch: boolean) => {}) => void;
 
 export interface AuthToken {
     accessToken: string;
@@ -58,7 +58,7 @@ userSchema.pre("save", function save(next) {
     if (!user.isModified("password")) { return next(); }
     bcrypt.genSalt(10, (err, salt) => {
         if (err) { return next(err); }
-        bcrypt.hash(user.password, salt, null, (err: mongoose.Error, hash:any) => {
+        bcrypt.hash(user.password, salt, null, (err: mongoose.Error, hash: any) => {
             if (err) { return next(err); }
             user.password = hash;
             next();
@@ -80,7 +80,7 @@ userSchema.methods.comparePassword = comparePassword;
 /**
  * Helper method for getting user's gravatar.
  */
-userSchema.methods.gravatar = function (size: number = 200) {
+userSchema.methods.gravatar = function (size = 200) {
     if (!this.email) {
         return `https://gravatar.com/avatar/?s=${size}&d=retro`;
     }

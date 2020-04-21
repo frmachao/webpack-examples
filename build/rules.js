@@ -61,8 +61,7 @@ module.exports = [
   {
 
     test: /\.(js|jsx|tsx)$/,
-    // 排除 `node_modules` 目录，不对它做处理
-    exclude: /node_modules/,
+    include: [path.join(__dirname, '../site')],
     use: {
       loader: 'babel-loader',
       options: {
@@ -76,16 +75,7 @@ module.exports = [
               libraryDirectory: "es",
               style: "css" // `style: true` 会加载 less 文件
             }
-          ],
-          // [
-          //   "module-resolver",
-          //   {
-          //     extensions: ['.js', '.jsx', '.ts', '.tsx'],
-          //     alias: {
-          //       "@": path.resolve(__dirname, '../site')
-          //     }
-          //   }
-          // ]
+          ]
         ]
       }
     }

@@ -2,8 +2,8 @@ import express, { Request, Response, Application, NextFunction } from "express";
 import mongoose from "mongoose";
 import mongo from "connect-mongo"; // 一般用来将session存储到数据库中
 import session from "express-session";
-import { MONGODB_URI, SESSION_SECRET } from "./utils/secrets";
-import { reqLog } from "./middlewares/log";
+import { MONGODB_URI, SESSION_SECRET } from "@/utils/secrets";
+import { reqLog } from "@/middlewares/log";
 import setRoutes from "./router";
 
 import path from "path";
@@ -21,9 +21,9 @@ mongoose
   .then(() => console.log("MongoDB connected!!"))
   .catch((err: Error) => console.error(err));
 // 设置前端资源路径
-app.use("/fe-static", express.static(path.join(__dirname, "../dist")));
+app.use("/fe-static", express.static(path.join(__dirname, "../../dist")));
 // 设置后端模板
-app.set("views", path.join(__dirname, "/view"));
+app.set("views", path.join(__dirname, "../view"));
 app.set("view engine", "ejs");
 // 处理请求正文中间件
 app.use(express.json());

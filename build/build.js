@@ -16,14 +16,13 @@ isBuild = argv.build ? `${buildRoot}/webpack.prod.js` : `${buildRoot}/webpack.de
 fileName = argv._[0];
 
 if (fileName === 'all') {
-  console.log('hasWatch===', hasWatch)
-  buildMPA()
   fs.readdirSync(`${projectRoot}/site`).forEach(file => {
     const blockFiles = ['.DS_Store', 'common', 'mpa']
     if (blockFiles.indexOf(file) === -1) {
       buildSPA(file)
     }
   });
+  buildMPA()
   return false;
 }
 if (fileName === 'site/mpa') {
@@ -33,6 +32,7 @@ if (fileName === 'site/mpa') {
 buildSPA(fileName)
 
 function buildMPA() {
+  process.env.MPA = 'true'
   let ENTRY_FILESNAME = {};
   let OUT_PUT_STR = `${distRoot}/mpa/[name].js`;
   if (!fs.readdirSync(`${projectRoot}/site/mpa`)) {
@@ -48,7 +48,6 @@ function buildMPA() {
   buildOne(getEntry(ENTRY_FILESNAME), OUT_PUT_STR);
 }
 function buildSPA(name) {
-  console.log('name==', name)
   let ENTRY_FILESNAME = {};
   let OUT_PUT_STR = `${distRoot}/${name}/[name][hash].js`;
   if (!fs.readdirSync(`${projectRoot}/site`).find(file => file === name)) {
@@ -65,18 +64,14 @@ function buildOne(ENTRY_FILESNAME_STR, OUT_PUT_STR) {
       if (error) {
         console.error('error:', error);
       }
-      if (stderr) {
-        console.warn('stderr:', stderr);
-      }
-      console.log('stdout:', stdout);
     }
   )
   cpBuild.stdout.on('data', (data) => {
-    console.log('stdout: ' + data);
+    console.log('on stdout: ' + data);
   });
-  cpBuild.stderr.on('data', (data) => {
+  cpBuild.stderr.on('on data', (data) => {
     if (data) {
-      console.log('stderr: ' + data);
+      console.log('on stderr: ' + data);
     }
   });
 }
