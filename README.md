@@ -9,18 +9,20 @@
 
 |--MPA
     |--build
-    |--dist 前端打包后的资源
+    |--dist 前端打包后的资源没有`html`文件，`html`交给服务端处理
         |--mpa
             |--page1
             |--page2
         |--spa1
         |--xxx
     |--server 网站后端
-        |--middlewares
-        |--controllers
-        |--models
+        |--src
+            |--middlewares
+            |--controllers
+            |--models
+            |--app.ts
         |--public
-        |--app.ts
+        |--view
     |--site 网站前端
         |--mpa 多页面应用资源目录
             |--page1
@@ -52,7 +54,7 @@ fuse-box 它年轻且成熟 并且它足够快,配置也足够简洁一切都是
  * 开发中产出dist目录交给服务端使用 node build.js [`site/map`|`spa1`|`all`]  --watch
  * 构建生产环境 node build.js all --build
  'site/mpa' 是约定的多页面工程目录
- * 启动服务端 在 `MPA/server` 目录 执行 `npx nodemon app.ts`
+ * 启动服务端 在 `MPA/server` 目录 执行 `npm run dev`
  * 开发环境访问 `/graphql` 来调试 api 接口
 ```
 
