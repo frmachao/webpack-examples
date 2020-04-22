@@ -1,4 +1,4 @@
-import express, { Application } from 'express';
+import express, { Application, Response } from 'express';
 import mongoose from 'mongoose';
 import mongo from 'connect-mongo'; // 一般用来将session存储到数据库中
 import session from 'express-session';
@@ -48,6 +48,11 @@ app.use(reqLog);
 setRoutes(app);
 app.use((req, res) => {
   res.status(404).send('Not Found');
+});
+// 错误处理
+app.use((err: Error, req, res: Response, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
 });
 // 启动服务
 app.set('port', process.env.PORT || 3000);

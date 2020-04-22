@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <link href="<%= venderCSS %>" rel=stylesheet>
+    <link href="<%= indexCSS %>" rel=stylesheet>
 </head>
 
 <body>
@@ -17,9 +18,9 @@
         <li><a href='/spa2'>SPA2</a></li>
     </ul>
     <div id="app">
-        <script type="text/javascript" src="<%= manifest %>"></script>
+        <script type="text/javascript" src="<%= runtime %>"></script>
         <script type="text/javascript" src="<%= venderJs %>"></script>
-        <script type="text/javascript" src="<%= app %>"></script>
+        <script type="text/javascript" src="<%= indexJS %>"></script>
     </div>
 </body>
 
