@@ -5,9 +5,7 @@
 ## 服务端集成`express` `mongodb` `graphql` 快速开始开发 支持 TypeScript 编写
 
 ```bash
-|--guides 跟随webpack官网指南
-
-|--MPA
+|--
     |--build
     |--dist 前端打包后的资源没有`html`文件，`html`交给服务端处理
         |--mpa
@@ -69,8 +67,8 @@ fuse-box 它年轻且成熟 并且它足够快,配置也足够简洁一切都是
 - [x] 添加 eslint、prettier 代码风格约束
 
 ## 记录
-- 前后端的 typescript 全部 采用 babel 来编译，
-  + 优点是编译更快，同时可以使用babel的插件比如 按需加载 和 路径别名 
-- 添加 eslint、prettier 代码风格约束 
-  + 没有采用社区的风格,仅有一些简单的规则
 
+- 前后端的 typescript 全部 采用 babel 来编译，
+  + 优点是编译更快，同时可以使用babel的插件比如 按需加载 和 路径别名
+- 添加 eslint、prettier 代码风格约束
+  + 没有采用社区的风格,仅有一些简单的规则
