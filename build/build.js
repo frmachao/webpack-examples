@@ -15,7 +15,9 @@ let hasWatch = argv.watch ? '--watch' : ''
 isBuild = argv.build ? `${buildRoot}/webpack.prod.js` : `${buildRoot}/webpack.dev.js`
 fileName = argv._[0];
 isHashName = argv.build ? '[name][hash]' : '[name]'
-
+if (argv.build) {
+    process.env.NODE_ENV = 'production'
+}
 if (fileName === 'all') {
     fs.readdirSync(`${projectRoot}/site`).forEach(file => {
         const blockFiles = ['.DS_Store', 'common', 'mpa']
