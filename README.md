@@ -49,11 +49,15 @@ fuse-box 它年轻且成熟 并且它足够快,配置也足够简洁一切都是
 ## 如何使用
 
 ```js
- * 开发中产出dist目录交给服务端使用 node build.js [`site/map`|`spa1`|`all`]  --watch
- * 构建生产环境 node build.js all --build
- 'site/mpa' 是约定的多页面工程目录
- * 启动服务端 在 `/server` 目录 执行 `npm run dev`
+ * 构建前端
+   开发中产出dist目录交给服务端使用 node build.js [`site/map`|`spa1`|`all`]  --watch
+   构建生产环境 node build.js all --build
+   'site/mpa' 是约定的多页面工程目录
+ * 服务端
+   在 `/server` 目录 执行 `npm run dev` `npm run watch`
+ * 构建服务端 `npm run build`
  * 开发环境访问 `/graphql` 来调试 api 接口
+
 ```
 
 ## TODO
