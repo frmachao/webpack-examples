@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/static/images/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/static/css/layout.css">
+    {% if appCSS %}
+    <link rel="stylesheet" href={{appCSS}}>
+    {% endif %}
+    {% if venderCSS %}
+    <link rel="stylesheet" href={{venderCSS}}>
+    {% endif %}
+</head>
+
+<body>
+    {% include "partials/header.njk" %}
+    <ul>
+        <li><a href='/blog'>blog</a></li>
+        <li><a href='/game'>game</a></li>
+        <li><a href='/spa1'>SPA1</a></li>
+        <li><a href='/spa2'>SPA2</a></li>
+    </ul>
+    <h1>{{title}}</h1>
+    <div id="app">
+        {% if appJS %}
+        <script type="text/javascript" src={{runtimeJS}}></script>
+        <script type="text/javascript" src={{venderJS}}></script>
+        <script type="text/javascript" src={{appJS}}></script>
+        {% endif %}
+    </div>
+    {% include "partials/footer.njk" %}
+</body>
+
+</html>

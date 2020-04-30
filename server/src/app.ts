@@ -2,6 +2,7 @@ import express, { Application, Response } from 'express';
 import mongoose from 'mongoose';
 import mongo from 'connect-mongo'; // 一般用来将session存储到数据库中
 import session from 'express-session';
+import nunjucks from 'nunjucks';
 import { MONGODB_URI, SESSION_SECRET } from '@/utils/secrets';
 import { reqLog } from '@/middlewares/log';
 import setRoutes from './router';
@@ -20,11 +21,14 @@ mongoose
   })
   .then(() => console.log('MongoDB connected!!'))
   .catch((err: Error) => console.error(err));
+// 设置后端模板引擎
+app.set('views', path.join(__dirname, '../views'));
+app.set('view engine', 'njk');
+nunjucks.configure('views', { autoescape: true, express: app, noCache: true }); // noCache生产环境要关闭
+// 后端静态资源
+app.use('/static', express.static(path.join(__dirname, 'public')));
 // 设置前端资源路径
 app.use('/fe-static', express.static(path.join(__dirname, '../../dist')));
-// 设置后端模板
-app.set('views', path.join(__dirname, '../view'));
-app.set('view engine', 'ejs');
 // 处理请求正文中间件
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

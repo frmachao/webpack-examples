@@ -4,7 +4,9 @@
     "extensions": [".js", ".ts", ".tsx"]
   },
   "files.associations": {
-    "*.jsx": "javascriptreact"
+    "*.jsx": "javascriptreact",
+    // "*.njk": "nunjucks"
+    "*.njk": "html"
   },
   "editor.insertSpaces": true,
   "editor.detectIndentation": false,

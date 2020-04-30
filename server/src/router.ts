@@ -5,7 +5,7 @@ import { getStatic } from '@/utils/common';
 
 const setRoutes = (app: Application) => {
   app.get('/', (req: Request, res: Response) => {
-    res.render('home');
+    res.render('layout');
   });
   app.use(
     '/graphql',
@@ -19,19 +19,19 @@ const setRoutes = (app: Application) => {
   );
   app.use('/blog', (req, res) => {
     const staticPath = '/mpa/manifest.json';
-    res.render('index', getStatic({ prefix: 'blog/', staticPath, title: 'blog' }));
+    res.render('layout', getStatic({ prefix: 'blog/', staticPath, title: 'blog' }));
   });
   app.use('/game', (req, res) => {
     const staticPath = '/mpa/manifest.json';
-    res.render('index', getStatic({ prefix: 'game/', staticPath, title: 'game' }));
+    res.render('layout', getStatic({ prefix: 'game/', staticPath, title: 'game' }));
   });
   app.use('/spa1', (req, res) => {
     const staticPath = '/spa1/manifest.json';
-    res.render('index', getStatic({ staticPath, title: 'spa1' }));
+    res.render('spaLayout', getStatic({ staticPath, title: 'spa1' }));
   });
   app.use('/spa2', (req, res) => {
     const staticPath = '/spa2/manifest.json';
-    res.render('index', getStatic({ staticPath, title: 'spa2' }));
+    res.render('spaLayout', getStatic({ staticPath, title: 'spa2' }));
   });
 };
 export default setRoutes;
