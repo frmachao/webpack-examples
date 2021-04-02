@@ -54,7 +54,7 @@ fuse-box 它年轻且成熟 并且它足够快,配置也足够简洁一切都是
    构建生产环境 node build.js all --build
    'site/mpa' 是约定的多页面工程目录
  * 服务端
-   在 `/server` 目录 执行 `npm run dev` `npm run watch`
+   在 `/server` 目录 执行 `npm run dev`
  * 构建服务端 `npm run build`
  * 开发环境访问 `/graphql` 来调试 api 接口
 
